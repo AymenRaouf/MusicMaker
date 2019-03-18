@@ -1,2 +1,2 @@
 # MusicMaker
-A mini project to test paper.js because i got bored
+A mini music maker project to test paper.js
