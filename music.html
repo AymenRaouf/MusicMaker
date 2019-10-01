@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Music</title>
@@ -8,104 +9,14 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.13/howler.core.min.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
 
-        var keyData = {
-            a:{
-                color: "purple",
-                sound: new Howl({
-                    src: ['A/bubbles.mp3']
-                    })
-            },
-            d:{
-                color: "yellow",
-                sound: new Howl({
-                    src: ['A/confetti.mp3']
-                    })
-            },
-            s:{
-                color: "green",
-                sound: new Howl({
-                    src: ['A/clay.mp3']
-                    })
-            },
-            z:{
-                color: "red",
-                sound: new Howl({
-                    src: ['A/corona.mp3']
-                    })
-            },
-            e:{
-                color: "blue",
-                sound: new Howl({
-                    src: ['A/dotted-spiral.mp3']
-                    })
-            },
-            q:{
-                color: "grey",
-                sound: new Howl({
-                    src: ['A/moon.mp3']
-                    })
-            },
-            w:{
-                color: "#e67e22",
-                sound: new Howl({
-                    src: ['A/strike.mp3']
-                    })
-            },
-            x:{
-                color: "#3498db",
-                sound: new Howl({
-                    src: ['A/splits.mp3']
-                    })
-            },
-            c:{
-                color: "#ecf0f1",
-                sound: new Howl({
-                    src: ['A/veil.mp3']
-                    })
-            },
-            r:{
-                color: "#1abc9c",
-                sound: new Howl({
-                    src: ['A/timer.mp3']
-                    })
-            },
-            f:{
-                color: "#f1c40f",
-                sound: new Howl({
-                    src: ['A/ufo.mp3']
-                    })
-            },
-            v:{
-                color: "#2c3e50",
-                sound: new Howl({
-                    src: ['A/wipe.mp3']
-                    })
-            }
-        };
-
-        var circles = [];
-
-	    function onKeyDown(event) {
-	        if(keyData[event.key]){
-                var maxPoint = new Point(view.size.width, view.size.height);
-                var randomPoint = Point.random();
-                var point = randomPoint * maxPoint;
-                var newCircle = new Path.Circle(point,300);
-                newCircle.fillColor = keyData[event.key].color;
-                keyData[event.key].sound.play();
-                circles.push(newCircle);
-            }
-        }
-
-        function onFrame(even){
-        for(var i = 0; i < circles.length;i++)
-            circles[i].scale(.9);
-        }
-    </script>
+        var keyData = { a:{ color: "purple", sound: new Howl({ src: ['A/bubbles.mp3'] }) }, d:{ color: "yellow", sound: new Howl({ src: ['A/confetti.mp3'] }) }, s:{ color: "green", sound: new Howl({ src: ['A/clay.mp3'] }) }, z:{ color: "red", sound: new Howl({ src: ['A/corona.mp3'] }) }, e:{ color: "blue", sound: new Howl({ src: ['A/dotted-spiral.mp3'] }) }, q:{ color: "grey", sound: new Howl({ src: ['A/moon.mp3'] }) }, w:{ color: "#e67e22", sound: new Howl({ src: ['A/strike.mp3'] }) }, x:{ color: "#3498db", sound: new Howl({ src: ['A/splits.mp3'] }) }, c:{ color: "#ecf0f1", sound: new Howl({ src: ['A/veil.mp3'] }) }, r:{ color: "#1abc9c", sound: new Howl({ src: ['A/timer.mp3'] }) }, f:{ color: "#f1c40f", sound: new Howl({ src: ['A/ufo.mp3'] }) }, v:{ color: "#2c3e50", sound: new Howl({ src: ['A/wipe.mp3'] }) } }; var circles = []; function onKeyDown(event) { if(keyData[event.key]){ var maxPoint = new Point(view.size.width, view.size.height); var randomPoint = Point.random(); var point = randomPoint * maxPoint; var newCircle = new Path.Circle(point,300); newCircle.fillColor = keyData[event.key].color; keyData[event.key].sound.play(); circles.push(newCircle); } } function onFrame(even){ for(var i = 0; i
+        < circles.length;i++) circles[i].scale(.9); } </script>
 </head>
+
 <body>
 
     <canvas id="myCanvas" resize></canvas>
 
 </body>
+
 </html>
